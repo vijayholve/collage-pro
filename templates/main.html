@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<body>
+{% include "navbar.html" %}
+{% block content %}
+ {% for message in messages%}
+ <h1>{{message}}</h1>
+ {% endfor %}
+
+{% endblock %}
+</body>
+</html>

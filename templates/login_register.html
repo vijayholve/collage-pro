@@ -1,0 +1,30 @@
+{% extends "main.html"%}
+{% block content %}
+{% if request.user.is_authenticated %}
+<div>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <lable>username</lable>
+        <input type="text" name="username" placeholder="Username">
+        <lable>password</lable>
+        <input type="password" name="password" placeholder="password">
+        <input type="submit" value="login">
+    </form>
+</div>
+<p>haven't registered yet<a href="{% url 'register-user' %}">register</a></p>
+{% else %}
+<div>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <lable>username</lable>
+        <input type="text" name="username" placeholder="Username">
+        <lable>password</lable>
+        <input type="password" name="password" placeholder="password">
+        <lable>password confirmation</lable>
+        <input type="password" name="password" placeholder="re-enter password">
+        <input type="submit" value="login">
+    </form>
+</div>
+<p>haven't registered yet<a href="{% url 'login-user' %}">login</a></p>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,13 @@
+{% extends "main.html" %}
+{% block content %}
+
+<a href="{% url 'create-students' %}" >create student</a> 
+<br>
+<a href="{% url 'login-user' %}">login user</a>
+<h3> hello {{ request.user }}</h3>
+{% for student in students %}
+<h1><a href="{% url 'student-data' student.id %}">{{student.studentName}}</h1>
+{% endfor %}
+
+{% endblock %}
+
